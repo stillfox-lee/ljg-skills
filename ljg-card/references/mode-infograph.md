@@ -95,6 +95,7 @@ Read `~/.claude/skills/ljg-card/assets/infograph_template.html`
 |------|------|
 | `{{TITLE}}` | 主标题 |
 | `{{SUBTITLE}}` | 副标题 |
+| `{{REF_CODE}}` | 动态参考编码，格式：`REF—{类别缩写} / {内容关键词大写}`。例：`REF—AI / AGENT ARCHITECTURE`、`REF—BIO / PROTEIN FOLDING`。从内容中提取领域和核心主题生成，不要用固定值 |
 | `{{CUSTOM_CSS}}` | 根据内容定制的所有 CSS |
 | `{{CONTENT_HTML}}` | 根据结构设计的所有内容 HTML |
 | `{{SOURCE}}` | 来源/署名 |

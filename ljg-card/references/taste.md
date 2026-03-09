@@ -10,9 +10,9 @@
 | VISUAL_DENSITY | 4 | 1=画廊留白，10=驾驶舱信息密度 |
 
 根据模具自动调整：
-- `-l` 长图：DESIGN_VARIANCE=5, VISUAL_DENSITY=3（阅读舒适优先）
-- `-i` 信息图：DESIGN_VARIANCE=7, VISUAL_DENSITY=8（数据密度优先）
-- `-c` 海报：DESIGN_VARIANCE=9, VISUAL_DENSITY=2（视觉冲击优先）
+- `-l` 长图：DESIGN_VARIANCE=5, VISUAL_DENSITY=3（阅读舒适优先）。变化通过**色调感知**实现——不同内容气质对应不同背景底色和强调色（见 mode-long.md 步骤 2.5）
+- `-i` 信息图：DESIGN_VARIANCE=7, VISUAL_DENSITY=8（数据密度优先）。变化通过**动态 REF 编码**和**内容驱动的自定义布局**实现
+- `-c` 海报：DESIGN_VARIANCE=9, VISUAL_DENSITY=2（视觉冲击优先）。与长图共享色调系统，结尾标记仅在末页出现
 
 ## 2. 排版工程
 

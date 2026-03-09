@@ -4,6 +4,18 @@
 
 Read `~/.claude/skills/ljg-card/assets/poster_template.html`
 
+## 步骤 1.5：色调感知
+
+与长图模具共享同一套色调系统。根据内容气质选择 `{{BG_COLOR}}` 和 `{{ACCENT_COLOR}}`：
+
+| 内容气质 | `{{BG_COLOR}}` | `{{ACCENT_COLOR}}` | 触发信号 |
+|----------|---------------|-------------------|----------|
+| 思辨/哲学 | `#FAF8F4` | `#7C6853` | 认知、思维、本质、意义、哲学 |
+| 技术/工程 | `#F5F7FA` | `#3D5A80` | 架构、模型、算法、系统、代码 |
+| 文学/叙事 | `#FBF9F1` | `#6B4E3D` | 故事、人物、写作、文字、诗 |
+| 科学/研究 | `#F4F8F6` | `#2D6A4F` | 实验、数据、发现、论文、研究 |
+| 默认 | `#FAFAF8` | `#4A4A4A` | 无法归类时 |
+
 ## 步骤 2：内容预处理
 
 - 识别标题行（`#`/`##`/`###` 开头，或独立短行）
@@ -79,11 +91,15 @@ Read `~/.claude/skills/ljg-card/assets/poster_template.html`
 
 | 变量 | 规则 |
 |------|------|
+| `{{BG_COLOR}}` | 步骤 1.5 确定的背景底色 |
+| `{{ACCENT_COLOR}}` | 步骤 1.5 确定的强调色 |
 | `{{HEADER_BLOCK}}` | 续页卡：`<div class="header"><span class="running-title">文章标题</span></div>`；首卡或单卡：空字符串 |
 | `{{TITLE_BLOCK}}` | 首卡有标题时：`<div class="title-area"><h1>标题</h1></div>`；续页卡或无标题时：空字符串 |
 | `{{BODY_HTML}}` | 步骤 5 生成的 HTML |
 | `{{SOURCE}}` | 来源/作者信息（用户提供则填入，否则 `李继刚`） |
 | `{{PAGE_INFO}}` | 多卡时 `1 / 3`，单卡时空字符串 |
+
+**结尾标记**：仅在最后一张卡的 `{{BODY_HTML}}` 末尾追加 `<p style="text-align:right;font-size:16px;color:#ACACB0;margin-top:40px;">∎</p>`。非末页不加。
 
 写入：`/tmp/ljg_cast_poster_{name}_{N}.html`
 

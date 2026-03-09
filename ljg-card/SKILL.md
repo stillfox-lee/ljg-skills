@@ -2,7 +2,7 @@
 name: ljg-card
 description: "Content caster (铸). Transforms content into PNG visuals. Three molds: -l (default) long reading card, -i infograph, -c multi-card reading cards (1080x1440). Output to ~/Downloads/. Use when user says '铸', 'cast', '做成图', '做成卡片', '做成信息图', '做成海报'. Replaces ljg-cards and ljg-infograph."
 user_invocable: true
-version: "1.5.0"
+version: "1.6.0"
 ---
 
 # ljg-card: 铸

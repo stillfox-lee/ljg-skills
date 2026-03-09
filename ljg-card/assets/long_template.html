@@ -4,10 +4,11 @@
 <meta charset="UTF-8">
 <style>
   :root {
+    --bg: {{BG_COLOR}};
     --text: #1D1D1F;
     --text-mid: #6E6E73;
     --text-dim: #ACACB0;
-    --accent: #1D1D1F;
+    --accent: {{ACCENT_COLOR}};
     --rule: #E5E5EA;
     --font: 'KingHwa_OldSong', 'PingFang SC', system-ui, sans-serif;
   }
@@ -16,12 +17,12 @@
 
   html, body {
     width: 1080px;
-    background: #FFFFFF;
+    background: var(--bg);
   }
 
   .card {
     width: 1080px;
-    background: #FFFFFF;
+    background: var(--bg);
     padding: 64px 72px 52px;
     display: flex;
     flex-direction: column;
@@ -164,7 +165,8 @@
     display: block;
     text-align: right;
     font-size: 16px;
-    color: var(--text-dim);
+    color: var(--accent);
+    opacity: 0.4;
     margin-top: 40px;
   }
 
