@@ -15,6 +15,18 @@
     --grid-line: rgba(45,41,38,0.06);
     --font: -apple-system, 'PingFang SC', 'Hiragino Sans GB', system-ui, sans-serif;
     --font-mono: 'SF Mono', 'Menlo', 'Monaco', monospace;
+    --font-serif: 'Georgia', 'Noto Serif SC', 'Songti SC', serif;
+
+    /* ── Spacing Tokens ── */
+    --sp-xs: 8px;
+    --sp-sm: 16px;
+    --sp-md: 24px;
+    --sp-lg: 40px;
+    --sp-xl: 56px;
+    --sp-2xl: 80px;
+
+    /* ── Canvas Padding (used for full-bleed calc) ── */
+    --canvas-px: 48px;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -34,9 +46,11 @@
     position: relative;
   }
 
-  /* ── HEADER ── */
+  /* ══════════════════════════════════════════
+     HEADER
+     ══════════════════════════════════════════ */
   .header {
-    padding: 56px 60px 40px;
+    padding: var(--sp-xl) 60px var(--sp-lg);
     border-bottom: 2px solid var(--brown);
     position: relative;
   }
@@ -62,9 +76,9 @@
   }
 
   .header h1 {
-    font: 900 64px/1.15 var(--font);
+    font: 900 64px/1.1 var(--font);
     color: var(--brown);
-    letter-spacing: -0.03em;
+    letter-spacing: -0.035em;
     margin-bottom: 12px;
   }
 
@@ -97,35 +111,134 @@
     height: 16px;
   }
 
-  /* ── CANVAS: 空白画布，由内容定制 ── */
+  /* ══════════════════════════════════════════
+     CANVAS
+     ══════════════════════════════════════════ */
   .canvas {
-    padding: 32px 40px;
+    padding: var(--sp-lg) var(--canvas-px);
   }
 
-  /* ── UTILITIES ── */
-  mark {
-    background: rgba(255,242,0,0.35);
-    color: inherit;
-    padding: 0 2px;
+  /* ══════════════════════════════════════════
+     TYPOGRAPHY UTILITIES
+     ══════════════════════════════════════════ */
+
+  /* Section Labels — uppercase mono micro-labels */
+  .label {
+    font: 400 10px/1 var(--font-mono);
+    color: var(--brown-light);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: var(--sp-md);
   }
 
-  .big-num {
-    font: 900 48px/1 var(--font);
+  .label--green { color: var(--green); }
+  .label--pink { color: var(--pink); }
+
+  /* Body text */
+  .body {
+    font: 400 16px/1.8 var(--font);
+    color: #4a4a4a;
+    max-width: 62ch;
+  }
+
+  .body strong {
     color: var(--brown);
-    letter-spacing: -0.03em;
+    font-weight: 700;
+  }
+
+  /* Big numbers — hero metrics */
+  .big-num {
+    font: 900 52px/1 var(--font-mono);
+    color: var(--brown);
+    letter-spacing: -0.04em;
+  }
+
+  .big-num--lg {
+    font-size: 72px;
   }
 
   .big-num .unit {
     font: 400 18px/1 var(--font);
     color: var(--brown-light);
+    margin-left: 4px;
   }
 
-  /* ── FOOTER ── */
+  /* Highlight /荧光笔 */
+  mark {
+    background: rgba(255,242,0,0.35);
+    color: inherit;
+    padding: 1px 4px;
+  }
+
+  /* Inline tag / badge */
+  .tag {
+    display: inline-block;
+    padding: 4px 12px;
+    font: 600 12px/1.5 var(--font);
+    color: var(--brown);
+    border-left: 3px solid var(--pink);
+    background: rgba(255,242,0,0.1);
+  }
+
+  .tag--dark {
+    background: rgba(184,216,190,0.1);
+    border-left-color: var(--green);
+    color: var(--white);
+  }
+
+  /* Serif accent for quotes */
+  .serif {
+    font-family: var(--font-serif);
+  }
+
+  /* ══════════════════════════════════════════
+     LAYOUT UTILITIES
+     ══════════════════════════════════════════ */
+
+  /* Full-bleed strip — breaks out of canvas padding */
+  .full-bleed {
+    margin-left: calc(-1 * var(--canvas-px));
+    margin-right: calc(-1 * var(--canvas-px));
+    padding-left: var(--canvas-px);
+    padding-right: var(--canvas-px);
+  }
+
+  /* Dark strip */
+  .strip-dark {
+    background: var(--brown);
+    color: var(--white);
+  }
+
+  /* Green strip */
+  .strip-green {
+    background: var(--green);
+  }
+
+  /* Spacers */
+  .gap-sm { height: var(--sp-sm); }
+  .gap-md { height: var(--sp-md); }
+  .gap-lg { height: var(--sp-lg); }
+  .gap-xl { height: var(--sp-xl); }
+
+  /* Dividers */
+  .divider {
+    border: none;
+    border-top: 1px solid rgba(45,41,38,0.1);
+    margin: var(--sp-lg) 0;
+  }
+
+  .divider--heavy {
+    border-top: 2px solid var(--brown);
+  }
+
+  /* ══════════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════════ */
   .footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 40px 28px;
+    padding: var(--sp-sm) var(--sp-lg) 28px;
     border-top: 1px solid rgba(45,41,38,0.1);
   }
 
@@ -159,7 +272,9 @@
     letter-spacing: 0.02em;
   }
 
-  /* ── Registration Marks ── */
+  /* ══════════════════════════════════════════
+     REGISTRATION MARKS
+     ══════════════════════════════════════════ */
   .infograph::before {
     content: '';
     position: absolute;
@@ -184,7 +299,9 @@
     z-index: 1;
   }
 
-  /* ── CUSTOM CSS ── */
+  /* ══════════════════════════════════════════
+     CUSTOM CSS — content-specific styles below
+     ══════════════════════════════════════════ */
   {{CUSTOM_CSS}}
 </style>
 </head>
@@ -209,7 +326,6 @@
         <img class="avatar" src="file:///Users/lijigang/.claude/skills/ljg-card/assets/logo.png" alt="">
         <span class="author-name">{{SOURCE}}</span>
       </div>
-      <!-- WaytoAGI 模板致敬 -->
       {{ARXIV_LINE}}
     </div>
   </div>
